@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: 16
 
-    - name: Create Releases by msm
+    - name: Create Releases
       uses: aurestic/incrementarl-create-release@master
       with:
         message: "upload by ${{ github.ref_name }}"

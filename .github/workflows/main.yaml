@@ -26,6 +26,7 @@ jobs:
     - name: Create Releases
       uses: aurestic/incrementarl-create-release@master
       with:
+        flag_branch: true
         message: "upload by ${{ github.ref_name }}"
         prev_tag: ''        
         update_odoo_module_version: true

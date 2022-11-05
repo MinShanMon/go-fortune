@@ -23,14 +23,23 @@ jobs:
       with:
         node-version: 16
 
-    - name: Create Releases
+    - name: Create tag name with branch
       uses: aurestic/incrementarl-create-release@master
       with:
-        message: "upload by ${{ github.ref_name }}"
-        prev_tag: ''        
+        flag_branch: true
+        message: "push by ${{ github.ref_name }}"
+        prev_tag: 'version-'
         update_odoo_module_version: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}      
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Release branch create
+      id: create-new-release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        release_name: ${{ github.ref_name }}
 
     - name: Railway Installation
       run: npm i -g @railway/cli

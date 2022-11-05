@@ -24,12 +24,10 @@ jobs:
         node-version: 16
 
     - name: Create Releases by msm
-      uses: aaiezza/create-release@master
-      id: create_release
+      uses: aurestic/incrementarl-create-release@master
       with:
-        release_name: ${{ github.ref_name }}
-        release_branch: ${{ github.ref_name }}
-        prev_tag: ${{ github.ref_name }}
+        message: "upload by ${{ github.ref_name }}"
+        prev_tag: ''        
         update_odoo_module_version: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}      

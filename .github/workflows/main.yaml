@@ -28,7 +28,7 @@ jobs:
       with:
         flag_branch: true
         message: "push by ${{ github.ref_name }}"
-        tag_name: ''
+        prev_tag: 'version-'
         update_odoo_module_version: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

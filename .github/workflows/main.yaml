@@ -24,12 +24,11 @@ jobs:
         node-version: 16
 
     - name: create release by msm
-      uses: aurestic/incrementarl-create-release@master
+      uses: aaiezza/create-release@master
+      id: create_release
       with:
-        flag_branch: true
-        message: Bump version
-        prev_tag: 'v6.4'
-        update_odoo_module_version: true
+        release_branch: v6.4
+        tag: 0.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
 

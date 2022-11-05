@@ -63,7 +63,7 @@ jobs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "Email:\shanmon2017@gmail.com"
+                    "text": "Email:\nshanmon2017@gmail.com"
                   },
                   {
                     "type": "mrkdwn",

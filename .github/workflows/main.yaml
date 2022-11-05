@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: 16
 
-    - name: release branches name
+    - name: release branche name
       id: create-new-release
       uses: actions/create-release@v1
       env:

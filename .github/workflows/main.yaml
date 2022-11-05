@@ -29,7 +29,6 @@ jobs:
         flag_branch: true
         message: "push by ${{ github.ref_name }}"
         prev_tag: 'version-'
-        release_name: ${{ github.ref_name }}
         update_odoo_module_version: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,8 +39,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        release_name: v${{ github.ref_name }}
-        
+        release_name: ${{ github.ref_name }}
+
     - name: Railway Installation
       run: npm i -g @railway/cli
 

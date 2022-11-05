@@ -23,14 +23,13 @@ jobs:
       with:
         node-version: 16
 
-    - name: create release by msm
-      uses: aaiezza/create-release@master
-      id: create_release
-      with:
-        release_branch: v6.6
-        tag: 0.0.1
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+      with:
+        tag_name: ${{ github.ref_name }}
+        release_name: ${{ github.ref_name }}
 
     - name: Railway Installation
       run: npm i -g @railway/cli

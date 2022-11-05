@@ -31,7 +31,7 @@ jobs:
         prev_tag: ''        
         update_odoo_module_version: true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}      
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
 
     - name: Railway Installation
       run: npm i -g @railway/cli

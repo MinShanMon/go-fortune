@@ -23,16 +23,22 @@ jobs:
       with:
         node-version: 16
 
-    - name: Create Releases
-      uses: aurestic/incrementarl-create-release@master
-      with:
-        flag_branch: true
-        message: "upload by ${{ github.ref_name }}"
-        prev_tag: ''        
-        update_odoo_module_version: true
+    - name: Create GitHub Release
+      id: create-new-release
+      uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
-
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+      with:
+        tag_name: v${{ github.run_number }}
+    - name: Upload asset to github
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-new-release.outpus.upload_url }}
+        asset_path: ./site.zip
+        asset_name: site-v3.zip
+        
     - name: Railway Installation
       run: npm i -g @railway/cli
 

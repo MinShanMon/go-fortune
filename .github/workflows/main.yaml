@@ -76,7 +76,7 @@ jobs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "Deployment:\nhttps://go-fortune-production-7cee.up.railway.app/"
+                    "text": "Deployment:\nhttps://go-fortune-production-7cee.up.railway.app"
                   }
                 ]
               },

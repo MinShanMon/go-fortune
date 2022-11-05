@@ -22,13 +22,15 @@ jobs:
       with:
         node-version: 16
 
-    - name: Release start to create in git hub
-      uses: actions/create-release@v1
+    - name: Create an incremental release
+      uses: aurestic/incrementarl-create-release@master
+      with:
+        flag_branch: true
+        message: Bump version
+        prev_tag: 'v6.4'
+        update_odoo_module_version: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref_name }}
-        release_name: ${{ github.ref_name }}
 
     - name: Railway Installation
       run: npm i -g @railway/cli
